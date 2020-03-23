@@ -7,7 +7,8 @@
 
 
     function renderTemplate (template, options) {
-        
+
+		/*
         var rawFile = new XMLHttpRequest();
         rawFile.open("GET", template, false);
         rawFile.onreadystatechange = function () {
@@ -18,7 +19,8 @@
                 }
             }
         }
-        rawFile.send(null);
+		rawFile.send(null);
+		*/
 
         return template.replace(/\$\{(.+?)\}/g, (match, variable) => {
             return variable.split('.').reduce((previous, current) => {

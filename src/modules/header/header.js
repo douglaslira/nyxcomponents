@@ -2,14 +2,14 @@
 
     'use strict';
 
-    class Footer {
+    class Header {
 
         constructor () {
             this.template = "";
         }
 
         create (obj) {
-            this.template = window.catSDK.renderTemplate(window["templates"]["../src/modules/footer/footer.html"], obj);
+            this.template = window.catSDK.renderTemplate(window["templates"]["../src/modules/header/header.html"], obj);
             return this;
         }
 
@@ -23,6 +23,6 @@
         }
     }
 
-    catSDK.footer = Footer;
+    catSDK.footer = Header;
 
 })(catSDK);
