@@ -2,10 +2,17 @@
 
     'use strict';
 
+    var footerEvents = new window.catSDK.eventBus();
+    var footerEventSubscription = footerEvents.subscribe('footerEvent::Button', function(arg){
+        console.log(arg);
+    });
+
     class Footer {
 
         constructor () {
             this.template = "";
+            this.footerEvents = "";
+            this.footerEventSubscription = "";
         }
 
         create (obj) {
@@ -14,7 +21,11 @@
         }
 
         render(target) {
-			document.getElementById(target).innerHTML += this.template;
+            document.getElementById(target).innerHTML += this.template;
+            document.getElementById("footerButton").onclick = function() {
+                footerEvents.publish("footerEvent::Button", {name: "OK"});
+            };
+            //footerEventSubscription.unsubscribe();
 			return this;
         }
 
