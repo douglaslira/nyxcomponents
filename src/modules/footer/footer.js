@@ -13,9 +13,9 @@
             return this;
         }
 
-        render() {
-            document.body.innerHTML += this.template;
-            return this;
+        render(target) {
+			document.getElementById(target).innerHTML += this.template;
+			return this;
         }
 
         debug () {

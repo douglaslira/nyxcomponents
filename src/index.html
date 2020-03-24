@@ -7,6 +7,7 @@
     <script src="./js/script.js"></script>
 </head>
 <body>
+	<div id="footer-teste"></div>
     <script>
         var footer = new window.catSDK.footer();
         var header = new window.catSDK.header();
@@ -18,7 +19,7 @@
 		footer.create({
 			name: "Footer",
 			value: 10
-		}).render().debug();
+		}).render('footer-teste').debug();
     </script>
 </body>
 </html>
