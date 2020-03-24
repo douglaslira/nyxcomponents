@@ -4,14 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Components</title>
-    <script src="./src/main.js"></script>
-    <script src="./src/modules/footer/footer.js"></script>
-    <script src="./src/templates.js"></script>
+    <script src="./js/script.js"></script>
 </head>
 <body>
     <script>
         var footer = new window.catSDK.footer();
-        footer.create({name: "Douglas Lira"}).render().debug();
+        var header = new window.catSDK.header();
+		// Header
+		header.create({
+			name: "Header"
+		}).render().debug();
+		// Footer
+		footer.create({
+			name: "Footer",
+			value: 10
+		}).render().debug();
     </script>
 </body>
 </html>

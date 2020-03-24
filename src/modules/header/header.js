@@ -23,6 +23,6 @@
         }
     }
 
-    catSDK.footer = Header;
+    catSDK.header = Header;
 
 })(catSDK);
