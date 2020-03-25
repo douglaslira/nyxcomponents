@@ -12,9 +12,9 @@
         }
 
         subscribe(eventType, callback) {
-            var id = getNextUniqueId()
+            var id = getNextUniqueId();
             if(!subscriptions[eventType]) {
-                subscriptions[eventType] = {}
+                subscriptions[eventType] = {};
             }
             subscriptions[eventType][id] = callback;
             return { 

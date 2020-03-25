@@ -6,7 +6,15 @@
 
     catSDK.renderTemplate = renderTemplate;
     catSDK.getIdGenerator = getIdGenerator;
+    catSDK.guidGenerator = guidGenerator;
     catSDK.bind = bind;
+
+    function guidGenerator() {
+        var S4 = function () {
+            return (((1 + Math.random()) * 0x10000) || 0).toString(16).substring(1);
+        };
+        return (S4().replace(".",""));
+    }
 
     function bind(obj, scope) {
         obj.forEach(function(element) {
@@ -51,12 +59,12 @@
         return function getNextUniqueId() {
             lastId += 1;
             return lastId;
-        }
+        };
     }
 
     function renderTemplate (template, options) {
-		return template.replace(/\$\{(.+?)\}/g, (match, variable) => {
-            return variable.split('.').reduce((previous, current) => {
+		return template.replace(/\$\{(.+?)\}/g, function(match, variable) {
+            return variable.split('.').reduce(function(previous, current) {
                 return previous[current];
             }, options) || '';
         });

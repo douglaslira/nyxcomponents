@@ -14,15 +14,21 @@
         }
 
         create (obj) {
-            this.template = window.catSDK.renderTemplate(window["templates"]["../src/modules/footer/footer.html"], obj);
+            this.template = window.catSDK.renderTemplate(window.templates["../src/modules/footer/footer.html"], obj);
             this.scope = obj;
             return this;
         }
 
         render(target) {
-
-            document.getElementById(target).innerHTML += this.template;
-            var elements = document.querySelectorAll('[data-cat-bind]');
+            var newTarget = target || window.catSDK.guidGenerator();
+            if(!target){
+                var newContent = document.createElement('div');
+                newContent.id = newTarget;
+                document.body.appendChild(newContent);
+            }
+            var objTarget =  document.getElementById(newTarget);
+            objTarget.innerHTML += this.template;
+            var elements = objTarget.querySelectorAll('[data-cat-bind]');
             var self = this;
 
             // Create two-way -----------------------
@@ -30,7 +36,7 @@
 
             // Dispatch event -----------------------
             document.getElementById("footerButton").onclick = function() {
-                self.scope.name = "Other footer";
+                self.scope.x = "Other footer";
                 footerEvents.publish("footerEvent::Button", {name: "OK"});
             };
             

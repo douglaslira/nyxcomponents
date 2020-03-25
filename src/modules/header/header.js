@@ -11,13 +11,20 @@
 
         create (obj) {
             this.scope = obj;
-            this.template = window.catSDK.renderTemplate(window["templates"]["../src/modules/header/header.html"], obj);
+            this.template = window.catSDK.renderTemplate(window.templates["../src/modules/header/header.html"], obj);
             return this;
         }
 
-        render() {
-            document.body.innerHTML += this.template;
-            var elements = document.querySelectorAll('[data-cat-bind]');
+        render(target) {
+            var newTarget = target || window.catSDK.guidGenerator();
+            if(!target){
+                var newContent = document.createElement('div');
+                newContent.id = newTarget;
+                document.body.appendChild(newContent);
+            }
+            var objTarget =  document.getElementById(newTarget);
+            objTarget.innerHTML += this.template;
+            var elements = objTarget.querySelectorAll('[data-cat-bind]');
             var self = this;
             
             // Create DATABIND -----------------------
@@ -28,7 +35,6 @@
                 self.scope.x = 'X';
                 self.scope.y = 'Y';
             });
-            this.debug();
             return this;
         }
 
