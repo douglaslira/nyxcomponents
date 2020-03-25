@@ -11,11 +11,16 @@
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.26.7",
+    "clean-css": "^4.2.3",
+    "cli": "^1.0.1",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-html2js": "^0.4.2",
     "gulp-jshint": "^2.1.0",
     "gulp-load-plugins": "^2.0.2",
-    "jshint": "^2.11.0"
+    "jshint": "^2.11.0",
+    "lodash.template": "^4.5.0",
+    "minimist": "^1.2.5",
+    "uglify-js": "^3.8.0"
   }
 }
